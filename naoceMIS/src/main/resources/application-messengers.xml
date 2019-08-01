@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="application" class="edu.sjtu.infoplus.applicationToolkit.InfoPlusApplication" factory-method="defaultApplication">
+
+        <property name="domain" value="sjtu.edu.cn"/>
+        <!--<property name="sharedCodeTableBuilders">
+            <list>
+                <bean class="edu.sjtu.flow.messenger.ExternalCodeTableBuilder">
+                    <property name="key"><value>Nicman2_Third_Unit_For_Colleage</value></property>
+                </bean>
+            </list>
+        </property>
+        -->
+        <property name="messengers">
+            <list>
+                <bean class="edu.sjtu.naocemis.flow.messenger.ConsumablesApplication">
+                    <property name="workflow" value="naocemis_consumables"/>
+                    <property name="secret" value="e844883c361956b2bb371329cc58e6d7"/>
+                </bean>
+
+                <bean class="edu.sjtu.naocemis.flow.messenger.NewsApplication">
+                    <property name="workflow" value="naocemis_news"/>
+                    <property name="secret" value="a251611825bf14a9435e5e515ff8e9d4"/>
+                </bean>
+
+            </list>
+        </property>
+    </bean>
+</beans>
